@@ -1,6 +1,9 @@
 package com.blz;
 
-public class Main {
+import java.util.Scanner;
+
+public class DeckOfCards {
+    public static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
         String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
@@ -12,7 +15,9 @@ public class Main {
             }
         }
         print(deck, suit, rank);
+        addPlayers();
     }
+
 
     private static void print(String[][] deck, String[] suit, String[] rank) {
         for (int i = 0; i < suit.length; i++) {
@@ -21,5 +26,15 @@ public class Main {
             }
             System.out.println();
         }
+    }
+
+    private static void addPlayers() {
+        Players[] player = new Players[4];
+        for (int i = 1; i <= player.length; i++) {
+            System.out.println("Enter the name of the " + i + " player");
+            String name = in.next();
+            player[i] = new Players(name);
+        }
+
     }
 }
