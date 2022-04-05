@@ -3,7 +3,14 @@ package com.blz;
 public class Players {
     String name;
     String[] cards;
-    public Players(String name){
-        this.name=name;
+
+
+    public String getName() {
+        return name;
     }
-}
+
+    public Players(String name, int noOfCards) {
+        this.name = name;
+        this.cards=new String[noOfCards];
+    }
+    }
