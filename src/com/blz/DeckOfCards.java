@@ -6,6 +6,7 @@ public class DeckOfCards {
         Game poker = new Game();
         poker.setup();
         poker.addPlayers();
+        poker.shuffle();
         poker.playGame();
         poker.display();
     }

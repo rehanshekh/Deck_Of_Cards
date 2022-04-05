@@ -21,6 +21,20 @@ public class Game {
         this.deck = deck;
     }
 
+    public void shuffle() {
+        String[] temp = new String[1];
+        for (int i = 0; i < suit.length; i++) {
+            for (int j = 0; j < rank.length; j++) {
+                int random1 = (int) Math.floor(Math.random() * 10) % 4;
+                int random2 = (int) Math.floor(Math.random() * 100) % 13;
+                temp[0] = deck[i][j];
+                deck[i][j] = deck[random1][random2];
+                deck[random1][random2] = temp[0];
+            }
+
+        }
+    }
+
     public void print() {
         for (int i = 0; i < suit.length; i++) {
             for (int j = 0; j < rank.length; j++) {
@@ -53,7 +67,6 @@ public class Game {
         }
     }
 
-
     public void setup() {
         for (int i = 0; i < suit.length; i++) {
             for (int j = 0; j < rank.length; j++) {
@@ -62,14 +75,13 @@ public class Game {
         }
     }
 
-
     public void addPlayers() {
         System.out.println("Enter the number of players to participate");
         noOfPlayers = in.nextInt();
         if (noOfPlayers >= 2 && noOfPlayers <= 4) {
             player = new Players[noOfPlayers];
             for (int i = 0; i < noOfPlayers; i++) {
-                System.out.println("Enter the name of the " + i + " player");
+                System.out.println("Enter the name of the " + i+1 + " player");
                 String name = in.next();
                 noOfCards = (52 / noOfPlayers);
                 player[i] = new Players(name, noOfCards);
