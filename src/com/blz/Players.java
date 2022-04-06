@@ -20,22 +20,13 @@ public class Players {
         int heartCount = 0;
         int spadeCount = 0;
 
-        for (int i = 0; i < cards.length; i++) {
-            switch (cards[i].split("\\(")[1]) {
-                case "Clubs)":
-                    clubCount = clubCount + 1;
-                    break;
-                case "Diamonds)":
-                    diamondCount = diamondCount + 1;
-                    break;
-                case "Hearts)":
-                    heartCount = heartCount + 1;
-                    break;
-                case "Spades)":
-                    spadeCount = spadeCount + 1;
-                    break;
-                default:
-                    System.out.println("Illegal Input");
+        for (String card : cards) {
+            switch (card.split("\\(")[1]) {
+                case "Clubs)" -> clubCount = clubCount + 1;
+                case "Diamonds)" -> diamondCount = diamondCount + 1;
+                case "Hearts)" -> heartCount = heartCount + 1;
+                case "Spades)" -> spadeCount = spadeCount + 1;
+                default -> System.out.println("Illegal Input");
             }
         }
         System.out.println(this.getName() + " " + "Clubs:" + clubCount + ", " + "Diamonds:" + diamondCount + ", " + "Hearts:" + heartCount + ", " + "Spades:" + spadeCount);

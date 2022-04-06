@@ -15,11 +15,6 @@ public class Game {
     public Game() {
     }
 
-    public Game(int noOfPlayers, int noOfCards, String[][] deck) {
-        this.noOfPlayers = noOfPlayers;
-        this.noOfCards = noOfCards;
-        this.deck = deck;
-    }
 
     public void shuffle() {
         String[] temp = new String[1];
