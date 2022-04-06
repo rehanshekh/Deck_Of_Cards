@@ -81,9 +81,10 @@ public class Game {
         if (noOfPlayers >= 2 && noOfPlayers <= 4) {
             player = new Players[noOfPlayers];
             for (int i = 0; i < noOfPlayers; i++) {
-                System.out.println("Enter the name of the " + i+1 + " player");
+                int playerCount = i + 1;
+                System.out.println("Enter the name of the " + playerCount + " player");
                 String name = in.next();
-                noOfCards = (52 / noOfPlayers);
+                noOfCards = 9;
                 player[i] = new Players(name, noOfCards);
             }
         } else {
@@ -94,5 +95,18 @@ public class Game {
     public void display() {
         for (Players player : player)
             System.out.println(player.getName() + " " + Arrays.toString(player.cards));
+    }
+
+    public void typeCard() {
+        for (Players player : player) {
+            player.typeCard();
+        }
+    }
+
+    public void sort() {
+        for (Players player : player) {
+            player.sortedHand();
+            System.out.println(player.getName() + " " + Arrays.toString(player.cards));
+        }
     }
 }
