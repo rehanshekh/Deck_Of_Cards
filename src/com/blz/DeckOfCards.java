@@ -8,7 +8,6 @@ public class DeckOfCards {
         poker.addPlayers();
         poker.shuffle();
         poker.playGame();
-        poker.display();
         poker.typeCard();
         poker.sort();
     }

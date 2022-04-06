@@ -1,5 +1,8 @@
 package com.blz;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Players {
     String name;
     String[] cards;
@@ -15,21 +18,20 @@ public class Players {
     }
 
     public void typeCard() {
-        int clubCount = 0;
-        int diamondCount = 0;
-        int heartCount = 0;
-        int spadeCount = 0;
-
+        Map<String, Integer> typeMap = new HashMap<>();
         for (String card : cards) {
-            switch (card.split("\\(")[1]) {
-                case "Clubs)" -> clubCount = clubCount + 1;
-                case "Diamonds)" -> diamondCount = diamondCount + 1;
-                case "Hearts)" -> heartCount = heartCount + 1;
-                case "Spades)" -> spadeCount = spadeCount + 1;
-                default -> System.out.println("Illegal Input");
+            String name = (card.split("\\(")[1]);
+            if (typeMap.containsKey(name)) {
+                typeMap.put(name, typeMap.get(name) + 1);
+            } else {
+                typeMap.put(name, 1);
             }
+
+        }System.out.print(this.getName()+" ");
+        for (Map.Entry<String,Integer>entry:typeMap.entrySet()){
+            System.out.print(entry.getKey()+"=>"+entry.getValue()+" ");
         }
-        System.out.println(this.getName() + " " + "Clubs:" + clubCount + ", " + "Diamonds:" + diamondCount + ", " + "Hearts:" + heartCount + ", " + "Spades:" + spadeCount);
+        System.out.println();
     }
 
     public void sortedHand() {
